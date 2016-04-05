@@ -1,5 +1,12 @@
-<ul>
-  {{#each model as |committee|}}
-  <li><h4>{{committee.name}}</h4><br>Chamber: {{committee.chamber}}</li>
+  {{#each (concat-committee-arrays model.page1 model.page2 model.page3 model.page4 model.page5 model.page6)  as |committee|}}
+    {{#unless committee.subcommittee}}
+      <div id="{{committee.committee_id}}">
+          <h3>{{committee.name}}</h3>
+          <p>Chamber: {{committee.chamber}}</p>
+          <h4>Subcommittees:</h4>
+      </div>
+    {{/unless}}
+    {{#if committee.subcommittee}}
+      {{sortSubs committee}}
+    {{/if}}
   {{/each}}
-</ul>

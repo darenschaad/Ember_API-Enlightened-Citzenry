@@ -1,0 +1,9 @@
+<h2> Bill Title: </h2><h3>{{bill.official_title}} </h3>
+{{#if billDetails}}
+  <button class="btn btn-sm btn-info" {{action 'billDetailsShow'}}>Hide Details</button>
+  <h4>Introduced on: {{bill.introduced_on}}</h4>
+  <h4>Chamber: {{bill.chamber}}</h4>
+  <h4>Sponsor: {{bill.sponsor.first_name}} {{bill.sponsor.last_name}}</h4>
+{{else}}
+  <button class="btn btn-sm btn-info" {{action 'billDetailsShow'}}>Show Details</button>
+{{/if}}
