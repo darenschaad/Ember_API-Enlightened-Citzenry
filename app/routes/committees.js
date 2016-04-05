@@ -3,7 +3,7 @@ import ENV from 'enlightened-citizenry/config/environment';
 
 export default Ember.Route.extend({
   model: function(params) {
-    var url = 'http://congress.api.sunlightfoundation.com/legislators/locate?apikey=' + ENV.SUNLIGHTFOUNDATION_KEY + '&zip=' + params.zip;
+    var url = 'http://congress.api.sunlightfoundation.com/committees?apikey=' + ENV.SUNLIGHTFOUNDATION_KEY;
     return Ember.$.getJSON(url).then(function(responseJSON) {
       return responseJSON.results;
     });
