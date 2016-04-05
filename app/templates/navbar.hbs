@@ -12,8 +12,16 @@
 
     <div class="collapse navbar-collapse" id="main-navbar">
       <ul class="nav navbar-nav">
-        {{#link-to 'committees' tagName="li"}}<a href="">Browse Committees</a>{{/link-to}}
-      </ul>
+        {{#bs-dropdown tagName="li"}}
+                {{#bs-dropdown-toggle}}Browse Committees <span class="caret"></span>{{/bs-dropdown-toggle}}
+                {{#bs-dropdown-menu}}
+                  <li>{{#link-to "committees" ""}}All{{/link-to}}</li>
+                  <li>{{#link-to "committees" "chamber=senate"}}Senate{{/link-to}}</li>
+                  <li>{{#link-to "committees" "chamber=house"}}House{{/link-to}}</li>
+                  <li>{{#link-to "committees" "chamber=joint"}}Joint{{/link-to}}</li>
+                {{/bs-dropdown-menu}}
+              {{/bs-dropdown}}
+            </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
